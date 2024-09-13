@@ -1,5 +1,9 @@
 import useSWR from "swr"
 
+import { setupMsw } from "./mocks/setupMsw"
+
+setupMsw()
+
 async function fetcher(url: string) {
   const response = await fetch(url)
   const result = await response.json()
@@ -8,10 +12,10 @@ async function fetcher(url: string) {
 }
 
 function App() {
-  const { data } = useSWR("https://jsonplaceholder.typicode.com/todos/1", fetcher)
+  const { data } = useSWR("/hello", fetcher)
   return (
     <>
-      {data.title}
+      {data}
     </>
   )
 }
