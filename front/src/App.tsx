@@ -1,6 +1,7 @@
 import useSWR from "swr"
 
 import { setupMsw } from "./mocks/setupMsw"
+import type { Task } from "./types/task"
 
 setupMsw()
 
@@ -12,10 +13,10 @@ async function fetcher(url: string) {
 }
 
 function App() {
-  const { data } = useSWR("/hello", fetcher)
+  const { data } = useSWR("/tasks", fetcher)
   return (
     <>
-      {data}
+      {data && data.map((task: Task) => { return <div key={task.id}>{task.title}</div> })}
     </>
   )
 }
