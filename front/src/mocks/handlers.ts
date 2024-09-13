@@ -1,7 +1,3 @@
-import { http, HttpResponse } from 'msw';
+import { handlers as taskHandlers } from './tasks';
 
-const get = http.get('/hello', () => {
-  return HttpResponse.json('Hello, world!');
-})
-
-export const handlers = [get];
+export const handlers = [...taskHandlers];
