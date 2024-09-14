@@ -1,5 +1,6 @@
 import type { Task } from "../../types/task";
 import { get } from "./get";
+import { post } from "./post";
 
 const tasks: Task[] = [
   { id: 1, title: "Task 1" },
@@ -10,4 +11,8 @@ export function getTasks(): Task[] {
   return tasks;
 }
 
-export const handlers = [get];
+export function addTask(task: Task): void {
+  tasks.push(task);
+}
+
+export const handlers = [get, post];
