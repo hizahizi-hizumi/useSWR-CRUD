@@ -38,11 +38,21 @@ async function put() {
   return result
 }
 
+async function delete_() {
+  const response = await fetch("/tasks/2", {
+    method: "DELETE",
+  })
+  const result = await response.json()
+
+  return result
+}
+
 function App() {
   const { data } = useSWR("/tasks", fetcher)
 
   post().then((result) => console.log(result))
   put().then((result) => console.log(result))
+  delete_().then((result) => console.log(result))
 
   return (
     <>
