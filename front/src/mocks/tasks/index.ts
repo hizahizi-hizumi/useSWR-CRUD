@@ -1,4 +1,4 @@
-import type { Task } from "../../types/task"
+import type { Task } from "@/types/task"
 import { delete_ } from "./delete"
 import { get } from "./get"
 import { post } from "./post"

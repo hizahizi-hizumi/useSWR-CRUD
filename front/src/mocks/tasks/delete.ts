@@ -1,7 +1,7 @@
 import { http, HttpResponse } from "msw"
 
 import { deleteTask, getTasks } from "."
-import type { Task } from "../../types/task"
+import type { Task } from "@/types/task"
 import { ENDPOINT } from "./ENDPOINT"
 
 type DeleteTasksParams = {

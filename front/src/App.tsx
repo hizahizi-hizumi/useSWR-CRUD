@@ -1,6 +1,6 @@
 import { Button } from "@mui/material"
 
-import { setupMsw } from "./mocks/setupMsw"
+import { setupMsw } from "@/mocks/setupMsw"
 
 setupMsw()
 

@@ -1,6 +1,6 @@
 import { http, HttpResponse } from "msw"
 
-import type { Task } from "../../types/task"
+import type { Task } from "@/types/task"
 import { getTasks } from "./"
 import { ENDPOINT } from "./ENDPOINT"
 
