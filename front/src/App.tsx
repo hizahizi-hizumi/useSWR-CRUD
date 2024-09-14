@@ -25,10 +25,24 @@ async function post() {
   return result
 }
 
+async function put() {
+  const response = await fetch("/tasks/1", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ title: "Task 1 updated" }),
+  })
+  const result = await response.json()
+
+  return result
+}
+
 function App() {
   const { data } = useSWR("/tasks", fetcher)
 
   post().then((result) => console.log(result))
+  put().then((result) => console.log(result))
 
   return (
     <>
