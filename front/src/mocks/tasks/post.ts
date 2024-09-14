@@ -1,7 +1,7 @@
 import { http, HttpResponse } from "msw"
 
-import { addTask, getTasks } from "."
 import type { Task } from "@/types/task"
+import { addTask, getTasks } from "."
 import { ENDPOINT } from "./ENDPOINT"
 
 type PostTasksParams = never

@@ -1,7 +1,7 @@
 import { http, HttpResponse } from "msw"
 
-import { getTasks, updateTask } from "."
 import type { Task } from "@/types/task"
+import { getTasks, updateTask } from "."
 import { ENDPOINT } from "./ENDPOINT"
 
 type PutTasksParams = {
