@@ -1,3 +1,5 @@
+import { Button } from "@mui/material"
+
 import { setupMsw } from "./mocks/setupMsw"
 
 setupMsw()
@@ -5,7 +7,7 @@ setupMsw()
 function App() {
   return (
     <>
-      hoge
+      <Button>hoge</Button>
     </>
   )
 }
