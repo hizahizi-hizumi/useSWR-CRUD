@@ -1,55 +1,47 @@
-import { http, HttpResponse } from "msw";
+import { http, HttpResponse } from "msw"
 
-import type { Task } from "../../types/task";
-import { getTasks, updateTask } from ".";
-import { ENDPOINT } from "./ENDPOINT";
+import { getTasks, updateTask } from "."
+import type { Task } from "../../types/task"
+import { ENDPOINT } from "./ENDPOINT"
 
 type PutTasksParams = {
-  id: string;
-};
+  id: string
+}
 
 type PutTasksRequestBody = {
-  title: string;
-};
+  title: string
+}
 
-type PutTasksResponseBody = Task | null;
+type PutTasksResponseBody = Task | null
 
-export const put = http.put<
-  PutTasksParams,
-  PutTasksRequestBody,
-  PutTasksResponseBody,
-  string
->(`${ENDPOINT}/:id`, async ({ params, request }) => {
-  // return HttpResponse.error();
-  const req = await request.json();
+export const put = http.put<PutTasksParams, PutTasksRequestBody, PutTasksResponseBody, string>(
+  `${ENDPOINT}/:id`,
+  async ({ params, request }) => {
+    // return HttpResponse.error();
+    const req = await request.json()
 
-  const tasks = getTasks();
+    const tasks = getTasks()
 
-  const isTaskExist = tasks.some((task) => task.id === Number(params.id));
+    const isTaskExist = tasks.some((task) => task.id === Number(params.id))
 
-  if (!isTaskExist) {
-    return HttpResponse.json(
-      null,
-      { status: 404 },
-    );
-  }
+    if (!isTaskExist) {
+      return HttpResponse.json(null, { status: 404 })
+    }
 
-  const taskTitles = tasks.map((task) => task.title);
-  const isParamsInvalid = taskTitles.includes(req.title);
+    const taskTitles = tasks.map((task) => task.title)
+    const isParamsInvalid = taskTitles.includes(req.title)
 
-  if (isParamsInvalid) {
-    return HttpResponse.json(
-      null,
-      { status: 400 },
-    );
-  }
+    if (isParamsInvalid) {
+      return HttpResponse.json(null, { status: 400 })
+    }
 
-  const task = {
-    id: Number(params.id),
-    title: req.title,
-  };
+    const task = {
+      id: Number(params.id),
+      title: req.title,
+    }
 
-  updateTask(task);
+    updateTask(task)
 
-  return HttpResponse.json(task, { status: 200 });
-});
+    return HttpResponse.json(task, { status: 200 })
+  },
+)

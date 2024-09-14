@@ -1,3 +1,3 @@
-import { handlers as taskHandlers } from './tasks';
+import { handlers as taskHandlers } from "./tasks"
 
-export const handlers = [...taskHandlers];
+export const handlers = [...taskHandlers]
