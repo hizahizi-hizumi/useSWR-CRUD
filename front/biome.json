@@ -7,7 +7,14 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["**/node_modules/**", "**/dist/**", "tsconfig.node.json", "tsconfig.app.json", "**/public/**"]
+    "ignore": [
+      "**/node_modules/**",
+      "**/dist/**",
+      "tsconfig.node.json",
+      "tsconfig.app.json",
+      "**/public/**",
+      "src/router.ts"
+    ]
   },
   "formatter": {
     "enabled": true,
