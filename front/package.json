@@ -14,9 +14,11 @@
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@fontsource/roboto": "^5.1.0",
+    "@generouted/react-router": "^1.19.6",
     "@mui/material": "^6.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2",
     "swr": "^2.2.5"
   },
   "devDependencies": {
@@ -35,6 +37,8 @@
     "vite": "^5.4.1"
   },
   "msw": {
-    "workerDirectory": ["public"]
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
